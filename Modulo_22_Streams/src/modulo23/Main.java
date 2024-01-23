@@ -1,4 +1,7 @@
+package modulo23;
+
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,6 +11,11 @@ public class Main {
         System.out.println("Digite nome e sexo no padrão: Nome-Sexo. Sendo que Sexo pode ser F ou M. Para mais de uma pessoa, separe com virgula (,): ");
         String stringPessoasESexo = scanner.nextLine();
 
+        retornaApenasMulheres(stringPessoasESexo)
+                .forEach(mulher -> System.out.println(mulher));
+    }
+
+    public static List<String> retornaApenasMulheres(String stringPessoasESexo) {
         List<String> listaPessoasESexo = List.of(stringPessoasESexo.split(","));
         Map<String, String> mapPessoaESexo = new HashMap<>();
 
@@ -21,9 +29,12 @@ public class Main {
 
         Set<Map.Entry<String, String>> setPessoaESexo = mapPessoaESexo.entrySet();
 
+        List<String> nomesMulheres = new ArrayList<String>();
+
         setPessoaESexo.stream()
                 .filter(pessoaESexo -> Objects.equals(pessoaESexo.getValue(), "Mulher"))
-                .forEach(pessoaESexo -> System.out.println(pessoaESexo.getKey()));
+                .forEach(pessoaESexo -> nomesMulheres.add(pessoaESexo.getKey()));
 
+        return nomesMulheres;
     }
 }
