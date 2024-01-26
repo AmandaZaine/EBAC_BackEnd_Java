@@ -27,4 +27,31 @@ public class ContratoServiceTest {
 
         Assert.assertEquals("Sucesso", retorno);
     }
+
+    @Test
+    public void buscar() {
+        IContratoDao dao = new ContratoDaoMock();
+        IContratoService service = new ContratoService(dao);
+        String retorno = service.buscar();
+
+        Assert.assertEquals("Busca realizada", retorno);
+    }
+
+    @Test
+    public void excluir() {
+        IContratoDao dao = new ContratoDaoMock();
+        IContratoService service = new ContratoService(dao);
+        String retorno = service.excluir();
+
+        Assert.assertEquals("Exclusao realizada", retorno);
+    }
+
+    @Test
+    public void atualizar() {
+        IContratoDao dao = new ContratoDaoMock();
+        IContratoService service = new ContratoService(dao);
+        String retorno = service.atualizar();
+
+        Assert.assertEquals("Atualizacao realizada", retorno);
+    }
 }

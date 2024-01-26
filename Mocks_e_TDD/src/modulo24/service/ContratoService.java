@@ -14,4 +14,22 @@ public class ContratoService implements IContratoService {
         dao.salvar();
         return "Sucesso";
     }
+
+    @Override
+    public String buscar() {
+        dao.buscar();
+        return "Busca realizada";
+    }
+
+    @Override
+    public String excluir() {
+        dao.excluir();
+        return "Exclusao realizada";
+    }
+
+    @Override
+    public String atualizar() {
+        dao.atualizar();
+        return "Atualizacao realizada";
+    }
 }
